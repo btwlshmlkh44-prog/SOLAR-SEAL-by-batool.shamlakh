@@ -1,0 +1,87 @@
+/* --- responsive.css --- */
+
+/* 1. إعدادات عامة لكل الصفحات */
+* {
+    box-sizing: border-box; /* لضمان أن الحواف والمسافات لا تزيد من حجم العناصر */
+}
+
+body {
+    overflow-x: hidden; /* لمنع ظهور شريط تمرير أفقي مزعج في التلفون */
+    width: 100%;
+}
+
+/* 2. جعل الصور مرنة في كل الموقع */
+img {
+    max-width: 100%; /* تمنع الصورة من أن تكون أكبر من الشاشة */
+    height: auto;    /* تحافظ على أبعاد الصورة دون تشويه */
+    display: block;
+}
+
+/* 3. تنسيق المتجر (Grid) ليكون تلقائياً */
+.products-grid {
+    display: grid;
+    /* السطر السحري: ينشئ أعمدة تلقائية لا يقل عرض الواحد فيها عن 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 15px;
+    width: 100%;
+}
+
+/* 4. تعديلات خاصة للهواتف (الشاشات أصغر من 768px) */
+@media (max-width: 768px) {
+    
+    /* تصغير العناوين لتناسب الشاشة الصغيرة */
+    h1 {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    /* جعل القائمة العلوية (Navigation) مرنة */
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* تجعل الروابط تنزل لسطر جديد إذا لم تكفِ المساحة */
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    nav a {
+        font-size: 14px; /* تصغير حجم خط الروابط قليلاً */
+        padding: 5px 8px;
+    }
+
+    /* الهيدر (Header) */
+    header {
+        flex-direction: column; /* ترتيب الشعار والسلة فوق بعض في التلفون */
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* قسم الهيرو (Hero Section) */
+    .hero-section {
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+    /* المربعات (Product Cards) */
+    .product-card {
+        margin: 0 auto; /* توسيط المربع في الشاشة */
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* 5. تعديلات للهواتف الصغيرة جداً (أقل من 480px) */
+@media (max-width: 480px) {
+    .price {
+        font-size: 1.2rem;
+    }
+    
+    .add-btn {
+        width: 100%; /* جعل زر الشراء يأخذ كامل عرض المربع لسهولة الضغط */
+    }
+}
