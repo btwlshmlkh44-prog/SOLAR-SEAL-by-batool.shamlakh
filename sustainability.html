@@ -1,43 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منارة الأبحاث | الفقمة الذكية</title>
+<link rel="stylesheet " href="style-sustainobility.css">
+<script src="script.js"></script>
+</head>
+<body>
 
-@media (max-width: 768px) {
-    nav {
-        display: none; /* مخفية تماماً */
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 70px;
-        right: 5%;
-        width: 90%;
-        border-radius: 15px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        padding: 20px;
-        z-index: 1000;
-        text-align: right;
-    }
+<header>
+    <div class="logo">منارة الفقمة 🦭</div>
+   <nav>
+        <a href="index.html" >الرئيسية</a>
+        <a href="sustainability.html"class="active">منارة الاستدامة</a>
+        <a href="shop.html">متجر الفقمة</a>
+         <a href="cart.html"> سلة تسوق</a>
+        <a href="contact.html">تواصل معنا</a>
+       
+    </nav>
+</header>
 
-    /* كلاس الإظهار (يتم تفعيله بواسطة الجافا سكريبت) */
-    nav.show {
-        display: flex !important;
-    }
+<section class="intro-section">
+    <div class="seal-art-container">
+        <div class="seal-main-body">
+            <div class="side-flipper left"></div>
+            <div class="side-flipper right"></div>
+            <div class="seal-cute-head">
+                <div class="eye-sparkle left"></div>
+                <div class="eye-sparkle right"></div>
+                <div class="pink-cheeks left"></div>
+                <div class="pink-cheeks right"></div>
+                <div class="cute-nose">
+                    <div class="nose-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>منارة الفقمة للأبحاث الذكية</h1>
+    <p>اكتشف المصادر العالمية التي يعتمد عليها مشروع الفقمة لضمان مستقبل طاقوي مستدام مئة بالمئة</p>
 
-    nav a {
-        padding: 12px;
-        border-bottom: 1px solid #eee;
-        width: 100%;
-    }
+    <div class="sea"></div>
+</section>
 
-    /* إظهار زر القائمة */
-    .menu-toggle {
-        display: block !important;
-        font-size: 28px;
-        cursor: pointer;
-        color: #1a73e8;
-        padding: 5px;
-    }
-}
+<main class="research-grid">
+    <div class="card">
+        <div class="icon-circle">📊</div>
+        <h3>تقرير كفاءة الطاقة 2023</h3>
+        <p>دراسة معمقة حول التحولات العالمية في استهلاك الطاقة وكيف يمكن للمجتمعات تقليل الهدر بنسب قياسية وتأثيرها على البيئة</p>
+        <a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2024/Nov/IRENA_World_energy_transitions_outlook_2024.pdf?utm_source=chatgpt.com" target="_blank" class="link-btn">تصفح الدراسة الكاملة</a>
+    </div>
+    <div class="card">
+        <div class="icon-circle">☀️</div>
+        <h3>دليل الأنظمة الشمسية</h3>
+        <p>الأبحاث التقنية التي تشرح كفاءة الألواح الشمسية في المناطق السكنية وكيفية تحسين امتصاص الأشعة وترشيد الطاقة</p>
+        <a href="https://www.mdpi.com/2071-1050/17/15/6932?utm_source=chatgpt.com" target="_blank" class="link-btn">عرض التفاصيل التقنية</a>
+    </div>
+    <div class="card">
+        <div class="icon-circle">🧠</div>
+        <h3>نموذج التغيير السلوكي</h3>
+        <p>تعرف على العلم الكامن وراء تحفيز البشر لتغيير عاداتهم اليومية في استهلاك الموارد بكل سهولة وتأثيرها على الحياة البشرية اذا لم يتم ترشيد الطاقة </p>
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S1364032125000644?via%3Dihub" target="_blank" class="link-btn">فلسفة التغيير الرقمي</a>
+    </div>
+    <div class="card">
+        <div class="icon-circle">🌿</div>
+        <h3>سلوك المناخ والمجتمع</h3>
+        <p>بحث علمي منشور حول أثر القرارات الفردية في ترشيد الطاقة على استدامة الكوكب وحماية الكوكب على الحيوانات والبشر </p>
+        <a href="https://www.mdpi.com/2076-2615/11/5/1301?utm_source=.com" target="_blank" class="link-btn">قراءة المقال العلمي</a>
+    </div>
+</main>
 
-/* إخفاء الزر في الكمبيوتر */
-.menu-toggle {
-    display: none;
-}
+</body>
+</html>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    // نبدأ الصفحة خارج الشاشة
+    document.body.style.transform = "translateX(100%)";
+    document.body.style.opacity = "0";
+    // نضيف Transition سريع جداً
+    document.body.style.transition = "transform 0.10s ease-out, opacity 0.35s ease-out";
 
+    // بعد قليل نرجعها لمكانها الطبيعي
+    setTimeout(() => {
+        document.body.style.transform = "translateX(0)";
+        document.body.style.opacity = "1";
+    }, 50); // 50ms كافية لتفعيل الحركة
+});
+</script>
