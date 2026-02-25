@@ -1,3 +1,65 @@
+root {
+    --polar-blue: #1a73e8;
+    --soft-snow: #f4f7f9;
+    --deep-ocean: #0d47a1;
+    --action-blue: #0077be;
+    --accent-orange: #ff6d00;
+}
+
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--soft-snow);
+    color: #2c3e50;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.logo { font-size: 26px; font-weight: bold; color: var(--polar-blue); }
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+}
+nav a.active { color: var(--polar-blue); font-weight: bold; }
+nav a:hover { color: var(--deep-ocean); }
+
+.cart-status {
+    background: var(--polar-blue);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cart-status:hover { transform: scale(1.05); background: var(--deep-ocean); }
+
+/* HERO */
+.hero-section {
+    text-align: center;
+    padding: 80px 10% 40px;
+    background: linear-gradient(180deg, #fff 0%, var(--soft-snow) 100%);
+}
+.hero-section h1 { font-size: 3rem; color: var(--deep-ocean); margin-bottom: 15px; }
+.hero-section p { font-size: 1.3rem; color: #555; max-width: 700px; margin: 0 auto; }
 
 /* 1. ضبط الحاوية لتسمح بمرور العناصر دون ضغطها */
 .products-grid {
@@ -82,5 +144,24 @@
     align-items: center !important;
     background: #f9f9f9 !important;
 }
+
+.price { font-size: 1.8rem; font-weight: 900; color: #333; }
+.price span { font-size: 0.9rem; color: #888; margin-right: 5px; }
+.add-btn {
+    background: var(--polar-blue);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-btn:hover { background: var(--accent-orange); box-shadow: 0 10px 20px rgba(255,109,0,0.2); }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } }
+
 
 
