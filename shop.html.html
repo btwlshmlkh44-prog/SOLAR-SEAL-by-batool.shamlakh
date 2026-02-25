@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر الفقمة - عالم الفقمة الذكي</title>
+<link rel="stylesheet" href="style-shpo.css.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">المتجر 🦭</div>
+    <div class="cart-status" onclick="window.location.href='cart.html.html'">
+        🛒 السلة (<span id="cart-count">0</span>) 
+    </div>
+    <nav>
+        <a href="index.html.html">الرئيسية</a>
+        <a href="sustainability.html.html">منارة الاستدامة</a>
+        <a href="shop.html.html" class="active">متجر الفقمة</a>
+        <a href="cart.html.html">سلة تسوق</a>
+        <a href="contact.html.html">تواصل معنا</a>
+       
+    </nav>
+</header>
+
+<section class="hero-section">
+    <h1>متجر الفقمة لمستقبل أفضل</h1>
+    <p>كل منتج تختاره يكون خطوة نحو حماية البيئة للإنسان والحيوان وتوفير ميزانيتك بذكاء مع صديقتك الفقمة الذكية 🦭✨</p>
+</section>
+
+<main class="products-grid">
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\smart-light.jpeg" alt="منتج 1"></div>
+        <div class="content">
+            <span class="category">إضاءة ذكية</span>
+            <h3>طقم الإنارة السحابي</h3>
+            <p>مصابيح ذكية تعمل على الطاقة الشمسية لتوفير الطاقة بشكل جميل وجاذب.</p>
+            <div class="footer-card">
+                <div class="price">12.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('طقم الإنارة السحابي', 12)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\solar-panel.png" alt="منتج 2"></div>
+        <div class="content">
+            <span class="category">طاقة شمسية</span>
+            <h3>اللوح الشمسي المتنقل</h3>
+            <p>اشحن أجهزتك في أي مكان باستخدام الطاقة الشمسية بكفاءة عالية.</p>
+            <div class="footer-card">
+                <div class="price">45.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('اللوح الشمسي المتنقل', 45)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\remote-control.png" alt="منتج 3"></div>
+        <div class="content">
+            <span class="category">أجهزة تحكم</span>
+            <h3>منظم الحرارة الذكي</h3>
+            <p>تحكم في حرارة منزلك من هاتفك وقلل الفاتورة حتى 40%.</p>
+            <div class="footer-card">
+                <div class="price">85.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('منظم الحرارة الذكي', 85)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\auto-protection-plug.png" alt="منتج 4"></div>
+        <div class="content">
+            <span class="category">توفير</span>
+            <h3>قابس الحماية التلقائي</h3>
+            <p>يمنع تسرب الكهرباء ويغلق التيار فور اكتمال الشحن.</p>
+            <div class="footer-card">
+                <div class="price">150.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('قابس الحماية التلقائي', 150)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\instant-usage-monitor.png" alt="منتج 5"></div>
+        <div class="content">
+            <span class="category">تقنية</span>
+            <h3>مراقب الاستهلاك الفوري</h3>
+            <p>شاشة صغيرة تعرض استهلاك الكهرباء لتتخذ قرارات ذكية.</p>
+            <div class="footer-card">
+                <div class="price">33.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('مراقب الاستهلاك الفوري', 33)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\solar-backpack.jpeg" alt="منتج 6"></div>
+        <div class="content">
+            <span class="category">اكسسوارات</span>
+            <h3>حقيبة الشحن الشمسية</h3>
+            <p>حقيبة ظهر ذكية مع خلايا شمسية لتحصل على طاقتك دائمًا.</p>
+            <div class="footer-card">
+                <div class="price">55.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('حقيبة الشحن الشمسية', 55)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src="c:\Users\User\OneDrive\Desktop\index.html\smart-power-strip.png" alt="منتج 7"></div>
+        <div class="content">
+            <span class="category">توفير</span>
+            <h3>الموزع الذكي للطاقة</h3>
+            <p>يوزع الكهرباء بكفاءة عالية ويحمي الأجهزة ويخفض الهدر.</p>
+            <div class="footer-card">
+                <div class="price">29.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('الموزع الذكي للطاقة', 29)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-holder"><img src=" c:\Users\User\OneDrive\Desktop\index.html\smart-alarm.png" alt="منتج 8"></div>
+        <div class="content">
+            <span class="category">راحة</span>
+            <h3>المنبه الذكي القطب الشمالي</h3>
+            <p>استيقظ بطريقة ذكية دون استهلاك غير ضروري للطاقة.</p>
+            <div class="footer-card">
+                <div class="price">22.00 <span>JOD</span></div>
+                <button class="add-btn" onclick="addToCart('المنبه الذكي القطب الشمالي', 22)">اشترِ الآن</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+// تحديث عداد السلة
+function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    document.getElementById('cart-count').innerText = cartItems.length;
+}
+
+// إضافة منتجات للسلة
+function addToCart(productName, price) {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    cartItems.push({name: productName, price: price});
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    updateCartCount();
+    alert(productName + " تمت إضافته للسلة!");
+}
+
+// حركة بسيطة عند تحميل الصفحة
+window.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach((card, i) => setTimeout(() => { card.style.opacity = 1; }, i * 150));
+    updateCartCount();
+});
+</script>
+
+</body>
+</html>

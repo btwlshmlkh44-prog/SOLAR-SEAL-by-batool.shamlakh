@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة التسوق - متجر الفقمة اللطيفة</title>
+    <link rel="stylesheet " href="style-cart.css.css">
+
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <span>🦭 متجر الفقمة</span>
+    </div>
+</header>
+
+<h1>سلة المشتريات</h1>
+
+<div id="cart" class="cart-list"></div>
+
+<div class="actions">
+    <button class="btn btn-clear" onclick="clearCart()">إفراغ السلة</button>
+    <button class="btn btn-confirm" onclick="confirmOrder()">تأكيد الشراء</button>
+</div>
+
+<div class="ocean-floor"></div>
+<div class="seal-container">
+    <div class="cute-seal">
+        <div class="seal-eye left"></div>
+        <div class="seal-eye right"></div>
+        <div class="seal-blush left"></div>
+        <div class="seal-blush right"></div>
+        <div class="seal-nose"></div>
+        <div class="flipper left"></div>
+        <div class="flipper right"></div>
+    </div>
+</div>
+
+<script>
+    function loadCart() {
+        const cartDiv = document.getElementById('cart');
+        const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartDiv.innerHTML = '';
+
+        if (items.length === 0) {
+            cartDiv.innerHTML = `
+                <div class="empty-msg">
+                    <span>السلة فارغة! 😢</span>
+                    <small style="font-size: 1rem; color: #999; font-weight: normal;">أضف بعض المنتجات لتبدأ التسوق</small>
+                </div>`;
+        } else {
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="item-info">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-price">${item.price} JOD</span>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${index})">إزالة</button>
+                `;
+                cartDiv.appendChild(div);
+            });
+        }
+    }
+
+    function removeItem(index) {
+        let items = JSON.parse(localStorage.getItem('cartItems')) || [];
+        items.splice(index, 1);
+        localStorage.setItem('cartItems', JSON.stringify(items));
+        loadCart();
+    }
+
+    function clearCart() {
+        let items = JSON.parse(localStorage.getItem('cartItems')) || [];
+        if (items.length > 0) {
+            localStorage.removeItem('cartItems');
+            loadCart();
+            alert("تم إفراغ السلة بالكامل! 🦭");
+        } else {
+            alert("السلة فارغة بالفعل!");
+        }
+    }
+
+    function confirmOrder() {
+        const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+        if (items.length === 0) {
+            alert("سلتك فارغة! سيتم تحويلك لصفحة المنتجات الآن.");
+            window.location.href = 'shop.html.html';
+        } else {
+            //   تظهر الرسالة ثم يتم التحويل للمنارة المعلومات
+            alert("تم تأكيد طلبك بنجاح الفقمة سعيدة جدا الان! 🦭✨");
+            window.location.href ='sustainability.html.html';
+        }
+    }
+
+    window.onload = loadCart;
+</script>
+
+</body>
+</html>
