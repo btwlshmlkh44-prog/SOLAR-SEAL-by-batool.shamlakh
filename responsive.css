@@ -20,13 +20,12 @@ img {
 /* 3. تنسيق المتجر (Grid) ليكون تلقائياً */
 .products-grid {
     display: grid;
-    /* السطر السحري: ينشئ أعمدة تلقائية لا يقل عرض الواحد فيها عن 250px */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* التعديل هنا: جعلنا الحد الأدنى أصغر قليلاً (200px) ليسمح بظهور 4 منتجات في الشاشات الكبيرة */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 15px;
     width: 100%;
 }
-
 /* 4. تعديلات خاصة للهواتف (الشاشات أصغر من 768px) */
 @media (max-width: 768px) {
     
@@ -84,4 +83,9 @@ img {
     .add-btn {
         width: 100%; /* جعل زر الشراء يأخذ كامل عرض المربع لسهولة الضغط */
     }
+@media (min-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 منتجات بالضبط للكمبيوتر */
+    }
+}
 }
