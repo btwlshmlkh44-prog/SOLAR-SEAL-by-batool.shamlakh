@@ -1,4 +1,4 @@
-<style>
+
 /* 1. ضبط الحاوية لتسمح بمرور العناصر دون ضغطها */
 .products-grid {
     display: flex !important;
@@ -82,4 +82,5 @@
     align-items: center !important;
     background: #f9f9f9 !important;
 }
-</style>
+
+
