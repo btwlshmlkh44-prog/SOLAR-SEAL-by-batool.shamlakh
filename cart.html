@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سلة التسوق - متجر الفقمة اللطيفة</title>
-    <link rel="stylesheet " href="style-cart.css.css">
+    <link rel="stylesheet " href="style-cart.css">
 
 </head>
 <body>
@@ -87,11 +87,11 @@
         const items = JSON.parse(localStorage.getItem('cartItems')) || [];
         if (items.length === 0) {
             alert("سلتك فارغة! سيتم تحويلك لصفحة المنتجات الآن.");
-            window.location.href = 'shop.html.html';
+            window.location.href = 'shop.html';
         } else {
             //   تظهر الرسالة ثم يتم التحويل للمنارة المعلومات
             alert("تم تأكيد طلبك بنجاح الفقمة سعيدة جدا الان! 🦭✨");
-            window.location.href ='sustainability.html.html';
+            window.location.href ='sustainability.html';
         }
     }
 
@@ -99,4 +99,5 @@
 </script>
 
 </body>
+
 </html>
