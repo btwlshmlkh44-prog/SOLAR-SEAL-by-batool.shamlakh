@@ -1,159 +1,85 @@
-:root {
-    --polar-blue: #1a73e8;
-    --soft-snow: #f4f7f9;
-    --deep-ocean: #0d47a1;
-    --action-blue: #0077be;
-    --accent-orange: #ff6d00;
-}
-
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--soft-snow);
-    color: #2c3e50;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo { font-size: 24px; font-weight: bold; color: var(--polar-blue); }
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
-}
-
-nav a.active { color: var(--polar-blue); }
-
-.cart-status {
-    background: var(--polar-blue);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* HERO */
-.hero-section {
-    text-align: center;
-    padding: 60px 5% 30px;
-}
-
-.hero-section h1 { font-size: 2.5rem; color: var(--deep-ocean); margin-bottom: 10px; }
-
-/* GRID PRODUCTS - تم التعديل هنا لضبط الـ 4 أعمدة */
+<style>
+/* 1. ضبط الحاوية لتسمح بمرور العناصر دون ضغطها */
 .products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    padding: 40px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    padding: 40px 5% !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
 }
 
-/* PRODUCT CARD - توحيد المقاسات */
+/* 2. ضبط المربع (Card) لمنعه من أن يصبح نحيفاً */
 .product-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    opacity: 1 !important; /* لضمان الظهور */
-    height: 480px; /* طول ثابت للمربعات في الكمبيوتر */
+    background: white !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+    height: 520px !important; /* طول ثابت ومناسب */
+    opacity: 1 !important;
+    border: 1px solid #eee !important;
 }
 
-.product-card:hover { transform: translateY(-10px); }
-
-/* ضبط الصور لتكون متساوية */
-.product-card img {
-    width: 100%;
-    height: 220px; 
-    object-fit: cover;
-}
-
-.content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    text-align: center;
-}
-
-.category {
-    color: var(--action-blue);
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.content h3 { font-size: 1.2rem; color: var(--deep-ocean); margin-bottom: 10px; height: 2.8rem; overflow: hidden; }
-.content p { font-size: 0.9rem; color: #666; margin-bottom: 15px; height: 3rem; overflow: hidden; }
-
-.footer-card {
-    margin-top: auto;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fcfcfc;
-}
-
-.price { font-size: 1.4rem; font-weight: 800; color: #333; }
-.add-btn {
-    background: var(--polar-blue);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* --- RESPONSIVE (التحكم في العدد) --- */
-
-/* للكمبيوتر: 4 منتجات */
+/* 3. للكمبيوتر: 4 منتجات (أهم جزء لإصلاح الشكل النحيف) */
 @media (min-width: 1025px) {
     .product-card {
-        flex: 0 0 calc(25% - 20px);
+        flex: 0 0 calc(23% - 10px) !important; /* تقليل النسبة قليلاً لترك مساحة */
+        min-width: 280px !important; /* هذا يمنع الصورة من أن تصبح نحيفة */
     }
 }
 
-/* للتابلت: 2 منتج */
+/* 4. للتابلت: 2 منتج */
 @media (min-width: 650px) and (max-width: 1024px) {
     .product-card {
-        flex: 0 0 calc(50% - 20px);
-        height: 500px;
+        flex: 0 0 calc(45% - 10px) !important;
+        min-width: 300px !important;
     }
 }
 
-/* للتلفون: منتج واحد بعرض الشاشة */
+/* 5. للتلفون: منتج واحد عريض */
 @media (max-width: 649px) {
     .product-card {
-        flex: 0 0 100%;
-        height: auto; /* ترك الارتفاع يتحدد حسب المحتوى في التلفون */
-        margin-bottom: 10px;
+        flex: 0 0 95% !important;
+        max-width: 400px !important;
+        height: auto !important;
+        margin: 0 auto 20px auto !important;
     }
-    
-    .hero-section h1 { font-size: 1.8rem; }
 }
+
+/* 6. إصلاح الصورة (أهم جزء في الصورة التي أرسلتِها) */
+.product-card img {
+    width: 100% !important;
+    height: 250px !important; /* طول ثابت للصورة */
+    object-fit: cover !important; /* تمنع انضغاط الصورة عرضياً */
+    display: block !important;
+}
+
+/* 7. ترتيب المحتوى ليكون متناسقاً */
+.product-card .content {
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    text-align: center !important;
+}
+
+.product-card h3 {
+    font-size: 1.2rem !important;
+    height: 3rem !important; /* مساحة ثابتة للعنوان */
+    overflow: hidden !important;
+    margin: 10px 0 !important;
+}
+
+.footer-card {
+    margin-top: auto !important;
+    padding: 15px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: #f9f9f9 !important;
+}
+</style>
