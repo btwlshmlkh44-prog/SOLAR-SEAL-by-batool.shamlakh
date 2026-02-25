@@ -134,6 +134,69 @@ nav a:hover { color: var(--deep-ocean); }
 }
 .add-btn:hover { background: var(--accent-orange); box-shadow: 0 10px 20px rgba(255,109,0,0.2); }
 
+/* 1. تصفير أي أبعاد قديمة قد تكون في ملف CSS الأصلي */
+.products-grid, .product-card {
+    max-width: none !important;
+    min-width: 0 !important;
+    width: auto !important;
+}
+
+/* 2. إعداد الحاوية لتكون مرنة */
+.products-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* 3. للكمبيوتر (4 منتجات) */
+@media (min-width: 1025px) {
+    .product-card {
+        flex: 0 0 calc(25% - 20px) !important; /* يأخذ ربع الشاشة بالضبط */
+        max-width: calc(25% - 20px) !important;
+    }
+}
+
+/* 4. للتابلت (منتجين) */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .product-card {
+        flex: 0 0 calc(50% - 20px) !important;
+        max-width: calc(50% - 20px) !important;
+    }
+}
+
+/* 5. للتلفون (منتج واحد فقط - يحل مشكلة الخراب) */
+@media (max-width: 599px) {
+    .products-grid {
+        padding: 10px !important;
+        gap: 15px !important;
+    }
+    .product-card {
+        flex: 0 0 100% !important; /* يأخذ عرض الشاشة كاملة */
+        max-width: 100% !important;
+        margin: 0 0 15px 0 !important;
+        display: block !important;
+    }
+    
+    /* تصغير الصور والخطوط في التلفون */
+    .product-card img {
+        height: 180px !important;
+    }
+    h3 { font-size: 1.1rem !important; }
+}
+
+/* 6. توحيد شكل الصور */
+.product-card img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } }
+
