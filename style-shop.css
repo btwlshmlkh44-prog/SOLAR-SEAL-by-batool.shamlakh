@@ -6,27 +6,26 @@
     --accent-orange: #ff6d00;
 }
 
-/* Reset */
+/* 1. الأساسيات */
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--soft-snow);
     color: #2c3e50;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* HEADER */
+/* 2. الهيدر والناف بار (إصلاح الاختفاء) */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 8%;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 15px 8% !important;
+    background: white !important;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .logo { font-size: 26px; font-weight: bold; color: var(--polar-blue); }
 nav a {
@@ -35,105 +34,84 @@ nav a {
     color: #444;
     font-weight: 600;
 }
-nav a.active { color: var(--polar-blue); font-weight: bold; }
-nav a:hover { color: var(--deep-ocean); }
+nav a.active { color: var(--polar-blue); }
 
-.cart-status {
-    background: var(--polar-blue);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.cart-status:hover { transform: scale(1.05); background: var(--deep-ocean); }
-
-/* HERO */
-.hero-section {
-    text-align: center;
-    padding: 80px 10% 40px;
-    background: linear-gradient(180deg, #fff 0%, var(--soft-snow) 100%);
-}
-.hero-section h1 { font-size: 3rem; color: var(--deep-ocean); margin-bottom: 15px; }
-.hero-section p { font-size: 1.3rem; color: #555; max-width: 700px; margin: 0 auto; }
-
-/* GRID PRODUCTS */
+/* 3. حاوية المنتجات (إصلاح الـ 4 جنب بعض) */
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* أربعة منتجات جنب بعض */
-    gap: 35px;
-    padding: 40px 8% 100px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    padding: 40px 5% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
 }
 
+/* 4. المربع (إصلاح الصور النحيفة والمقاسات) */
 .product-card {
-    background: white;
-    border-radius: 30px; /* زوايا المربع الأبيض */
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    opacity: 0; /* للظهور بحركة */
-}
-.product-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(26,115,232,0.1); }
-
-.img-holder {
-    width: 100%;
-    height: 260px; 
-    background: #eef2f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0; /* الصورة بدون زوايا */
-    overflow: hidden; 
-}
-.img-holder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0; /* الصورة بدون زوايا */
+    background: white !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+    transition: 0.3s !important;
+    height: 500px !important; /* طول موحد */
+    border: 1px solid #eee !important;
+    opacity: 1 !important;
 }
 
-.category {
-    color: var(--action-blue);
-    font-size: 0.85rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    display: block;
-     text-align: right;      /* محاذاة النص لليسار */
-    margin-left: 12px; 
+/* للكمبيوتر: 4 أعمدة بدون انضغاط */
+@media (min-width: 1025px) {
+    .product-card {
+        flex: 0 0 calc(24% - 15px) !important;
+        min-width: 270px !important;
+    }
 }
-.content h3 { margin: 0 0 15px; font-size: 1.5rem; color: var(--deep-ocean); }
-.content p { font-size: 0.95rem; color: #666; line-height: 1.7; margin-bottom: 25px; }
+
+/* للتابلت: 2 عمود */
+@media (min-width: 650px) and (max-width: 1024px) {
+    .product-card {
+        flex: 0 0 calc(48% - 15px) !important;
+    }
+}
+
+/* للتلفون: 1 عمود */
+@media (max-width: 649px) {
+    .product-card {
+        flex: 0 0 100% !important;
+        height: auto !important;
+    }
+}
+
+/* 5. إصلاح الصور (منع المط والتعويق) */
+.product-card img {
+    width: 100% !important;
+    height: 230px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* 6. تنسيق النصوص والأزرار */
+.content { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
+.content h3 { font-size: 1.2rem; color: var(--deep-ocean); margin-bottom: 10px; height: 3rem; overflow: hidden; }
 
 .footer-card {
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-    padding: 0 15px 15px 15px;
-    border-radius: 20px; /* زوايا لمربع الأسعار */
+    background: #fcfcfc;
+    border-top: 1px solid #f0f0f0;
 }
-.price { font-size: 1.8rem; font-weight: 900; color: #333; }
-.price span { font-size: 0.9rem; color: #888; margin-right: 5px; }
+.price { font-size: 1.5rem; font-weight: bold; }
 .add-btn {
     background: var(--polar-blue);
     color: white;
     border: none;
-    padding: 14px 28px;
-    border-radius: 20px;
-    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: bold;
 }
-.add-btn:hover { background: var(--accent-orange); box-shadow: 0 10px 20px rgba(255,109,0,0.2); }
-
-/* RESPONSIVE */
-@media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } }
+.add-btn:hover { background: var(--accent-orange); }
