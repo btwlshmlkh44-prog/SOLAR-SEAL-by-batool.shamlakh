@@ -83,9 +83,33 @@ img {
     .add-btn {
         width: 100%; /* جعل زر الشراء يأخذ كامل عرض المربع لسهولة الضغط */
     }
-@media (min-width: 1024px) {
+/* أجبار 4 منتجات في السطر للشاشات الكبيرة */
+@media (min-width: 992px) {
     .products-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 منتجات بالضبط للكمبيوتر */
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important; /* 4 أعمدة متساوية */
+        gap: 15px !important;
+        max-width: 1200px; /* يمكنكِ تكبير هذا الرقم إذا أردتِ الصف أعرض */
+        margin: 0 auto;
+    }
+
+    .product-card {
+        width: 100% !important; /* إلغاء أي عرض ثابت قديم */
+    }
+}
+
+/* في حال كانت الشاشة متوسطة (تابلت) يكونوا 2 جنب بعض */
+@media (min-width: 600px) and (max-width: 991px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* في التلفون يكونوا 1 في السطر لسهولة الرؤية */
+@media (max-width: 599px) {
+    .products-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
     }
 }
 }
+
