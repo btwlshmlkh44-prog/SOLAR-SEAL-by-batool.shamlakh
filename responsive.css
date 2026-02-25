@@ -1,61 +1,77 @@
-/* --- التنظيف الشامل وتعديل التناسب --- */
-
-/* 1. السطر الأهم: جعل كل العناصر تحسب حجمها من الداخل لكي لا تخرج عن الشاشة */
-* {
-    box-sizing: border-box;
-}
+/* 1. السطر السحري لمنع أي خروج عن الشاشة */
+* { box-sizing: border-box; }
 
 body, html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* يمنع الرجفة والتحرك يميناً ويساراً في التلفون */
+    overflow-x: hidden;
     width: 100%;
 }
 
-/* 2. جعل الحاوية مرنة جداً */
+/* 2. القائمة الذكية (Menu) - حل مشكلة تغطية الفقمة */
+@media (max-width: 768px) {
+    nav {
+        display: none; /* مخفية حتى نضغط الزر */
+        flex-direction: column !important;
+        background: white !important;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        z-index: 9999;
+    }
+
+    /* عندما تضغطين الزر، سنضيف كلاس active بالجافا سكريبت */
+    nav.active {
+        display: flex !important;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        font-size: 28px;
+        cursor: pointer;
+        color: #1a73e8;
+    }
+}
+
+/* 3. حاوية المنتجات - حل مشكلة 4 منتجات مرتبة */
 .products-grid {
-    display: grid !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
     gap: 20px !important;
     padding: 20px !important;
-    width: 100% !important;
-    max-width: 1300px !important; /* لكي لا تتمدد أكثر من اللزوم في الشاشات العملاقة */
+    max-width: 1400px !important;
     margin: 0 auto !important;
 }
 
-/* 3. للكمبيوتر (أكبر من 1024 بكسل): 4 منتجات */
+/* 4. مقاسات المربعات للكمبيوتر (4 منتجات) */
 @media (min-width: 1024px) {
-    .products-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
+    .product-card {
+        flex: 0 0 calc(25% - 20px) !important;
+        min-width: 260px !important; /* يمنع النحافة */
+        height: 480px !important;
     }
 }
 
-/* 4. للتابلت (بين 768 و 1023 بكسل): 2 منتجات */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-/* 5. للتلفون (أقل من 767 بكسل): منتج واحد فقط لكي لا يخرب التصميم */
-@media (max-width: 767px) {
-    .products-grid {
-        grid-template-columns: 1fr !important;
+/* 5. مقاسات المربعات للتلفون (منتج واحد واضح) */
+@media (max-width: 1023px) {
+    .product-card {
+        flex: 0 0 calc(100% - 20px) !important;
+        max-width: 400px !important;
+        height: auto !important;
+        margin-bottom: 20px !important;
     }
     
-    .product-card {
-        width: 90% !important; /* لجعل المربع يأخذ معظم الشاشة ويكون واضحاً */
-        margin: 0 auto 20px auto !important;
-    }
-
-    nav {
-        flex-direction: column !important; /* القائمة فوق بعض في التلفون */
-        gap: 5px !important;
+    .product-card img {
+        height: 250px !important;
     }
 }
 
-/* 6. إصلاح الصور داخل المربعات لكي لا تخرج عنها */
+/* توحيد الصور */
 .product-card img {
     width: 100% !important;
-    height: auto !important;
-    object-fit: cover;
+    object-fit: cover !important;
 }
